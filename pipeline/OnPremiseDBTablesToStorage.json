@@ -93,7 +93,13 @@
 							"inputs": [
 								{
 									"referenceName": "DatasetInOnPremiseDBTables",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"TableName": {
+											"value": "@item()",
+											"type": "Expression"
+										}
+									}
 								}
 							],
 							"outputs": [
