@@ -11,6 +11,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase1'"
 		},
+		"LinkToOnPremiseDB_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LinkToOnPremiseDB'"
+		},
 		"LinkedServiceForStore_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'LinkedServiceForStore'"
@@ -47,10 +51,33 @@
 					},
 					"LinkedServiceForStore_connectionString": {
 						"value": "[parameters('LinkedServiceForStore_connectionString')]"
+					},
+					"LinkToOnPremiseDB_connectionString": {
+						"value": "[parameters('LinkToOnPremiseDB_connectionString')]"
 					}
 				}
 			},
 			"dependsOn": []
+		},
+		{
+			"name": "LTIPrashantADF_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'LTIPrashantADF_ArmTemplate_0')]"
+			]
 		}
 	]
 }

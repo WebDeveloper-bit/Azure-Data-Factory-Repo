@@ -8,6 +8,9 @@
 		"AzureSqlDatabase1_connectionString": {
 			"value": ""
 		},
+		"LinkToOnPremiseDB_connectionString": {
+			"value": ""
+		},
 		"LinkedServiceForStore_connectionString": {
 			"value": ""
 		}
