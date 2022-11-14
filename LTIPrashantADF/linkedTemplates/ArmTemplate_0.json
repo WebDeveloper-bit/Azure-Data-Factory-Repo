@@ -33,40 +33,38 @@
 					{
 						"name": "Filter1",
 						"type": "Filter",
-						"dependsOn": [
-							{
-								"activity": "Append variable",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"items": {
-								"value": "@variables('A')",
-								"type": "Expression"
-							},
-							"condition": {
-								"value": "@greater(item().value, 3)",
-								"type": "Expression"
-							}
-						}
-					},
-					{
-						"name": "Append variable",
-						"type": "AppendVariable",
 						"dependsOn": [],
 						"userProperties": [],
 						"typeProperties": {
-							"variableName": "A",
-							"value": "[[1,2,3,4,5,6,7,8]"
+							"items": {
+								"value": "@pipeline().parameters.A",
+								"type": "Expression"
+							},
+							"condition": {
+								"value": "@greater(item(), 5)",
+								"type": "Expression"
+							}
 						}
 					}
 				],
 				"policy": {
 					"elapsedTimeMetric": {},
 					"cancelAfter": {}
+				},
+				"parameters": {
+					"A": {
+						"type": "array",
+						"defaultValue": [
+							1,
+							2,
+							3,
+							4,
+							5,
+							6,
+							7,
+							8
+						]
+					}
 				},
 				"variables": {
 					"A": {
