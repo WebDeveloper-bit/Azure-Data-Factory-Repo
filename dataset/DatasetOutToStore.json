@@ -1,0 +1,25 @@
+{
+	"name": "DatasetOutToStore",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LinkedServiceForStore",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Pratice Dataset_6"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": "On_Premise_DBTables",
+				"container": "data"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}

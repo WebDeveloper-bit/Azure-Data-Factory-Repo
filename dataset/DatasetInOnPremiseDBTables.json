@@ -1,0 +1,15 @@
+{
+	"name": "DatasetInOnPremiseDBTables",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LinkToOnPremiseDB",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Pratice Dataset_6"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": []
+	}
+}
