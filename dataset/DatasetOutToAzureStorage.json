@@ -1,0 +1,26 @@
+{
+	"name": "DatasetOutToAzureStorage",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LinkedServiceForStore",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Pratice Dataset_5"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": "output",
+				"container": "data"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

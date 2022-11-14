@@ -1,0 +1,16 @@
+{
+	"name": "LinkToOnPremiseDB",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"connectionString": "integrated security=False;data source=DESKTOP-QMRSNH0\\SQLEXPRESS;initial catalog=CustmerDB;user id=sa",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI4ZTNkMjE5Ni0xZTMzLTRkZDQtODY3ZS1hYjA0N2Y1ODY5OGYiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "SelfHostedIR",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

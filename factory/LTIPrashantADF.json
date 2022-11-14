@@ -1,0 +1,9 @@
+{
+	"name": "LTIPrashantADF",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "ed0f1862-d476-41ec-a634-74ee3af83dc0",
+		"tenantId": "bb98dc28-6df9-4358-8527-2552bbde05b8"
+	}
+}

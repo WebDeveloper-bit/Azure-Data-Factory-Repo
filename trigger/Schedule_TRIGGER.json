@@ -1,0 +1,24 @@
+{
+	"name": "Schedule_TRIGGER",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "CopyStoreToStore",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 1,
+				"startTime": "2022-11-02T14:01:00",
+				"timeZone": "India Standard Time"
+			}
+		}
+	}
+}
