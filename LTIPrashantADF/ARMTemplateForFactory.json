@@ -395,10 +395,6 @@
 									"typeProperties": {
 										"source": {
 											"type": "SqlServerSource",
-											"sqlReaderQuery": {
-												"value": "@item()",
-												"type": "Expression"
-											},
 											"queryTimeout": "02:00:00",
 											"partitionOption": "None"
 										},
@@ -425,9 +421,14 @@
 									},
 									"inputs": [
 										{
-											"referenceName": "DatasetInOnPremiseDBTables",
+											"referenceName": "SqlServerTable1",
 											"type": "DatasetReference",
-											"parameters": {}
+											"parameters": {
+												"TableName": {
+													"value": "@item()",
+													"type": "Expression"
+												}
+											}
 										}
 									],
 									"outputs": [
@@ -453,6 +454,7 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/DatasetInOnPremiseDBTables')]",
+				"[concat(variables('factoryId'), '/datasets/SqlServerTable1')]",
 				"[concat(variables('factoryId'), '/datasets/DatasetOutToStore')]"
 			]
 		},
@@ -1354,6 +1356,35 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/LinkedServiceForStore')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SqlServerTable1')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LinkToOnPremiseDB",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"TableName": {
+						"type": "string"
+					}
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": {
+						"value": "@dataset().TableName",
+						"type": "Expression"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/LinkToOnPremiseDB')]"
 			]
 		},
 		{
