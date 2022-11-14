@@ -62,10 +62,6 @@
 							"typeProperties": {
 								"source": {
 									"type": "SqlServerSource",
-									"sqlReaderQuery": {
-										"value": "@item()",
-										"type": "Expression"
-									},
 									"queryTimeout": "02:00:00",
 									"partitionOption": "None"
 								},
@@ -92,7 +88,7 @@
 							},
 							"inputs": [
 								{
-									"referenceName": "DatasetInOnPremiseDBTables",
+									"referenceName": "SqlServerTable1",
 									"type": "DatasetReference",
 									"parameters": {
 										"TableName": {

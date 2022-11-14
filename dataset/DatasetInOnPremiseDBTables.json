@@ -5,23 +5,11 @@
 			"referenceName": "LinkToOnPremiseDB",
 			"type": "LinkedServiceReference"
 		},
-		"parameters": {
-			"TableName": {
-				"type": "string"
-			}
-		},
 		"folder": {
 			"name": "Pratice Dataset_6"
 		},
 		"annotations": [],
 		"type": "SqlServerTable",
-		"schema": [],
-		"typeProperties": {
-			"schema": "dbo",
-			"table": {
-				"value": "@dataset().TableName",
-				"type": "Expression"
-			}
-		}
+		"schema": []
 	}
 }
