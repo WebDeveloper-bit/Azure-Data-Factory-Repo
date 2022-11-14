@@ -20,7 +20,7 @@
 						"type": "Expression"
 					},
 					"condition": {
-						"value": "@not(equals(item().name, 'cow'))",
+						"value": "@not(equals(item().value, 'cow'))",
 						"type": "Expression"
 					}
 				}
