@@ -107,6 +107,62 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/FilterActivityPipeline')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Filter1",
+						"type": "Filter",
+						"dependsOn": [
+							{
+								"activity": "Append variable",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"items": {
+								"value": "@variables('A')",
+								"type": "Expression"
+							},
+							"condition": {
+								"value": "@not(contains(item(), 'cow'))",
+								"type": "Expression"
+							}
+						}
+					},
+					{
+						"name": "Append variable",
+						"type": "AppendVariable",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"variableName": "A",
+							"value": "[[\"dog\",\"cat\",\"cow\",\"sparrow\"]"
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"variables": {
+					"A": {
+						"type": "Array"
+					}
+				},
+				"folder": {
+					"name": "Pratice Pipeline_7"
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/MultipleStoreFilesToSBTablePipeline')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
@@ -1371,6 +1427,9 @@
 					"TableName": {
 						"type": "string"
 					}
+				},
+				"folder": {
+					"name": "Pratice Dataset_6"
 				},
 				"annotations": [],
 				"type": "SqlServerTable",
