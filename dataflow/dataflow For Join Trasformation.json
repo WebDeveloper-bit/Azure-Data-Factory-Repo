@@ -22,10 +22,18 @@
 					"name": "SourceForProductCategory"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DatasetMergeOutProAndProCatTable",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
 			"transformations": [
 				{
-					"name": "InnerJoinTwoTablesBaseOnProductCategoryID"
+					"name": "JoinTwoTable"
 				}
 			],
 			"scriptLines": [
@@ -63,11 +71,16 @@
 				"     validateSchema: false,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
 				"     format: 'table') ~> SourceForProductCategory",
-				"SourceForProduct, SourceForProductCategory join(source for product@ProductCategoryID == source for product category@ProductCategoryID,",
+				"SourceForProduct, SourceForProductCategory join(SourceForProduct@ProductCategoryID == SourceForProductCategory@ProductCategoryID,",
 				"     joinType:'inner',",
 				"     matchType:'exact',",
 				"     ignoreSpaces: false,",
-				"     broadcast: 'auto')~> InnerJoinTwoTablesBaseOnProductCategoryID"
+				"     broadcast: 'auto')~> JoinTwoTable",
+				"JoinTwoTable sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     partitionBy('hash', 1)) ~> sink1"
 			]
 		}
 	}
