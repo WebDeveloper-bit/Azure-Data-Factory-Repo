@@ -6,7 +6,7 @@
 			"type": "LinkedServiceReference"
 		},
 		"folder": {
-			"name": "Pratice Dataset_9"
+			"name": "Pratice Dataset_9/Join Datasets"
 		},
 		"annotations": [],
 		"type": "DelimitedText",
