@@ -1,0 +1,23 @@
+{
+	"name": "DatasetOutLoanData_2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LinkedServiceForStore",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Pratice Dataset_9/Split Datasets"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "LoanData_2",
+				"folderPath": "output",
+				"container": "data"
+			}
+		},
+		"schema": {}
+	}
+}

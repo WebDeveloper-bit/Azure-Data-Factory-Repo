@@ -1,0 +1,73 @@
+{
+	"name": "dataflow For Split Trasformation",
+	"properties": {
+		"folder": {
+			"name": "Pratice Dataflow_9"
+		},
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DatasetInLoanRawDataForSpliting",
+						"type": "DatasetReference"
+					},
+					"name": "SourceForLoanRawData"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DatasetOutLoanData_1",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				},
+				{
+					"dataset": {
+						"referenceName": "DatasetOutLoanData_2",
+						"type": "DatasetReference"
+					},
+					"name": "sink2"
+				}
+			],
+			"transformations": [
+				{
+					"name": "SplitbaseonRecords"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          Id as integer,",
+				"          Loan_ID as string,",
+				"          Gender as string,",
+				"          Marital as string,",
+				"          Dependents as string,",
+				"          Education as string,",
+				"          SelfEmplo as string,",
+				"          ApplIncome as string,",
+				"          CoApplIncome as string,",
+				"          {Loan Amt} as string,",
+				"          Term as string,",
+				"          CreditHistory as string,",
+				"          PropArea as string,",
+				"          LoanStatus as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> SourceForLoanRawData",
+				"SourceForLoanRawData split(Id<=200,",
+				"     Id>=200,",
+				"     disjoint: false) ~> SplitbaseonRecords@(loanData1, loanData2)",
+				"SplitbaseonRecords@loanData1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1",
+				"SplitbaseonRecords@loanData2 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink2"
+			]
+		}
+	}
+}
