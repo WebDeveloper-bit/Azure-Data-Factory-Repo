@@ -886,12 +886,8 @@
 								"parameters": {},
 								"datasetParameters": {
 									"SourceForLoanRawData": {},
-									"sink1": {
-										"fileName": "LoanData_1"
-									},
-									"sink2": {
-										"fileName": "LoanData_2"
-									}
+									"sink1": {},
+									"sink2": {}
 								}
 							},
 							"staging": {},
@@ -1834,12 +1830,6 @@
 					"referenceName": "LinkedServiceForStore",
 					"type": "LinkedServiceReference"
 				},
-				"parameters": {
-					"fileName": {
-						"type": "string",
-						"defaultValue": "LoanData_1"
-					}
-				},
 				"folder": {
 					"name": "Pratice Dataset_9/Split Datasets"
 				},
@@ -1848,10 +1838,6 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
-						"fileName": {
-							"value": "@dataset().fileName",
-							"type": "Expression"
-						},
 						"folderPath": "output",
 						"container": "data"
 					}
@@ -1871,12 +1857,6 @@
 					"referenceName": "LinkedServiceForStore",
 					"type": "LinkedServiceReference"
 				},
-				"parameters": {
-					"fileName": {
-						"type": "string",
-						"defaultValue": "LoanData_2"
-					}
-				},
 				"folder": {
 					"name": "Pratice Dataset_9/Split Datasets"
 				},
@@ -1885,10 +1865,6 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
-						"fileName": {
-							"value": "@dataset().fileName",
-							"type": "Expression"
-						},
 						"folderPath": "output",
 						"container": "data"
 					}

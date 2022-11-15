@@ -786,12 +786,6 @@
 					"referenceName": "LinkedServiceForStore",
 					"type": "LinkedServiceReference"
 				},
-				"parameters": {
-					"fileName": {
-						"type": "string",
-						"defaultValue": "LoanData_1"
-					}
-				},
 				"folder": {
 					"name": "Pratice Dataset_9/Split Datasets"
 				},
@@ -800,10 +794,6 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
-						"fileName": {
-							"value": "@dataset().fileName",
-							"type": "Expression"
-						},
 						"folderPath": "output",
 						"container": "data"
 					}
@@ -823,12 +813,6 @@
 					"referenceName": "LinkedServiceForStore",
 					"type": "LinkedServiceReference"
 				},
-				"parameters": {
-					"fileName": {
-						"type": "string",
-						"defaultValue": "LoanData_2"
-					}
-				},
 				"folder": {
 					"name": "Pratice Dataset_9/Split Datasets"
 				},
@@ -837,10 +821,6 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
-						"fileName": {
-							"value": "@dataset().fileName",
-							"type": "Expression"
-						},
 						"folderPath": "output",
 						"container": "data"
 					}

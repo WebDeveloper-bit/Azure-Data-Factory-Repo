@@ -286,12 +286,8 @@
 								"parameters": {},
 								"datasetParameters": {
 									"SourceForLoanRawData": {},
-									"sink1": {
-										"fileName": "LoanData_1"
-									},
-									"sink2": {
-										"fileName": "LoanData_2"
-									}
+									"sink1": {},
+									"sink2": {}
 								}
 							},
 							"staging": {},
