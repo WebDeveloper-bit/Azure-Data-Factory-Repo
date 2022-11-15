@@ -886,8 +886,12 @@
 								"parameters": {},
 								"datasetParameters": {
 									"SourceForLoanRawData": {},
-									"sink1": {},
-									"sink2": {}
+									"sink1": {
+										"fileName": "LoanData_1"
+									},
+									"sink2": {
+										"fileName": "LoanData_2"
+									}
 								}
 							},
 							"staging": {},
@@ -1412,7 +1416,7 @@
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "Pratice Dataset_9"
+					"name": "Pratice Dataset_9/Join Datasets"
 				},
 				"annotations": [],
 				"type": "DelimitedText",
@@ -1522,7 +1526,7 @@
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "Pratice Dataset_9"
+					"name": "Pratice Dataset_9/Join Datasets"
 				},
 				"annotations": [],
 				"type": "AzureSqlTable",
@@ -1571,7 +1575,7 @@
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "Pratice Dataset_9"
+					"name": "Pratice Dataset_9/Join Datasets"
 				},
 				"annotations": [],
 				"type": "AzureSqlTable",
@@ -1830,6 +1834,12 @@
 					"referenceName": "LinkedServiceForStore",
 					"type": "LinkedServiceReference"
 				},
+				"parameters": {
+					"fileName": {
+						"type": "string",
+						"defaultValue": "LoanData_1"
+					}
+				},
 				"folder": {
 					"name": "Pratice Dataset_9/Split Datasets"
 				},
@@ -1838,7 +1848,10 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
-						"fileName": "LoanData_1",
+						"fileName": {
+							"value": "@dataset().fileName",
+							"type": "Expression"
+						},
 						"folderPath": "output",
 						"container": "data"
 					}
@@ -1858,6 +1871,12 @@
 					"referenceName": "LinkedServiceForStore",
 					"type": "LinkedServiceReference"
 				},
+				"parameters": {
+					"fileName": {
+						"type": "string",
+						"defaultValue": "LoanData_2"
+					}
+				},
 				"folder": {
 					"name": "Pratice Dataset_9/Split Datasets"
 				},
@@ -1866,7 +1885,10 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
-						"fileName": "LoanData_2",
+						"fileName": {
+							"value": "@dataset().fileName",
+							"type": "Expression"
+						},
 						"folderPath": "output",
 						"container": "data"
 					}
