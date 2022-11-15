@@ -154,7 +154,7 @@
 					}
 				},
 				"folder": {
-					"name": "Pratice Pipeline_7"
+					"name": "Pratice Pipeline_7 (Filter Activity)"
 				},
 				"annotations": []
 			},
@@ -221,7 +221,7 @@
 						}
 					},
 					{
-						"name": "ForEach1",
+						"name": "ForEach copy all total sales to output folder",
 						"type": "ForEach",
 						"dependsOn": [
 							{
@@ -313,7 +313,7 @@
 					"cancelAfter": {}
 				},
 				"folder": {
-					"name": "Pratice Pipeline_7"
+					"name": "Pratice Pipeline_7 (Filter Activity)"
 				},
 				"annotations": []
 			},
@@ -751,6 +751,64 @@
 				"[concat(variables('factoryId'), '/datasets/DatasetInFromOnPremiseDB')]",
 				"[concat(variables('factoryId'), '/datasets/DatasetOutToAzureStorage')]"
 			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/PipelineForIfCondition')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "If Condition1",
+						"type": "IfCondition",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"expression": {
+								"value": "@equals(pipeline().parameters.SName, 'Raj')",
+								"type": "Expression"
+							},
+							"ifFalseActivities": [
+								{
+									"name": "False Wait",
+									"type": "Wait",
+									"dependsOn": [],
+									"userProperties": [],
+									"typeProperties": {
+										"waitTimeInSeconds": 3
+									}
+								}
+							],
+							"ifTrueActivities": [
+								{
+									"name": "True Wait",
+									"type": "Wait",
+									"dependsOn": [],
+									"userProperties": [],
+									"typeProperties": {
+										"waitTimeInSeconds": 1
+									}
+								}
+							]
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"parameters": {
+					"SName": {
+						"type": "string",
+						"defaultValue": "Raj"
+					}
+				},
+				"folder": {
+					"name": "Pratice Pipeline_8 (if condition)"
+				},
+				"annotations": []
+			},
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/StoreToDBPipeline')]",

@@ -17,6 +17,34 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/OutputDatasetForStore_2')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LinkedServiceForStore",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Pratice Dataset_2"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"folderPath": "output",
+						"container": "data"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/LinkToOnPremiseDB')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
@@ -173,7 +201,7 @@
 						}
 					},
 					{
-						"name": "ForEach1",
+						"name": "ForEach copy all total sales to output folder",
 						"type": "ForEach",
 						"dependsOn": [
 							{
@@ -265,7 +293,7 @@
 					"cancelAfter": {}
 				},
 				"folder": {
-					"name": "Pratice Pipeline_7"
+					"name": "Pratice Pipeline_7 (Filter Activity)"
 				},
 				"annotations": []
 			},
@@ -682,7 +710,9 @@
 				"annotations": [],
 				"lastPublishTime": "2022-10-20T10:46:32Z"
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/OutputDatasetForStore_2')]"
+			]
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/DatasetInFromOnPremiseDB')]",
