@@ -1,0 +1,53 @@
+{
+	"name": "DatasetInForEachTotalSale",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LinkedServiceForStore",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"TotalSales": {
+				"type": "string"
+			}
+		},
+		"folder": {
+			"name": "Pratice Dataset_7"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": {
+					"value": "@dataset().TotalSales",
+					"type": "Expression"
+				},
+				"folderPath": "input",
+				"container": "data"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			}
+		]
+	}
+}
