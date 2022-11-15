@@ -1,0 +1,51 @@
+{
+	"name": "PipelineForIfCondition",
+	"properties": {
+		"activities": [
+			{
+				"name": "If Condition1",
+				"type": "IfCondition",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"expression": {
+						"value": "@equals(pipeline().parameters.SName, 'Raj')",
+						"type": "Expression"
+					},
+					"ifFalseActivities": [
+						{
+							"name": "False Wait",
+							"type": "Wait",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"waitTimeInSeconds": 3
+							}
+						}
+					],
+					"ifTrueActivities": [
+						{
+							"name": "True Wait",
+							"type": "Wait",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"waitTimeInSeconds": 1
+							}
+						}
+					]
+				}
+			}
+		],
+		"parameters": {
+			"SName": {
+				"type": "string",
+				"defaultValue": "Raj"
+			}
+		},
+		"folder": {
+			"name": "Pratice Pipeline_8 (if condition)"
+		},
+		"annotations": []
+	}
+}
