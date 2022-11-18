@@ -58,7 +58,7 @@
 						"partitionOption": "None"
 					},
 					"dataset": {
-						"referenceName": "AzureSqlTable1",
+						"referenceName": "DatasetInCustTable",
 						"type": "DatasetReference"
 					}
 				}

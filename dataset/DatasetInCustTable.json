@@ -1,9 +1,12 @@
 {
-	"name": "AzureSqlTable1",
+	"name": "DatasetInCustTable",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureSqlDatabase1",
 			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Pratice Dataset_10"
 		},
 		"annotations": [],
 		"type": "AzureSqlTable",
