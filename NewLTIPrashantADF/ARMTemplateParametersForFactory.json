@@ -5,10 +5,10 @@
 		"factoryName": {
 			"value": "NewLTIPrashantADF"
 		},
-		"AzureSqlDatabase1_connectionString": {
+		"LinkedServiceForStore_connectionString": {
 			"value": ""
 		},
-		"LinkedServiceForStore_connectionString": {
+		"AzureSqlDatabase1_connectionString": {
 			"value": ""
 		},
 		"SqlServer1_connectionString": {
