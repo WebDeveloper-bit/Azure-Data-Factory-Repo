@@ -143,7 +143,14 @@
 					{
 						"name": "Stored procedure1",
 						"type": "SqlServerStoredProcedure",
-						"dependsOn": [],
+						"dependsOn": [
+							{
+								"activity": "Lookup1",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
 						"policy": {
 							"timeout": "0.12:00:00",
 							"retry": 0,
@@ -175,7 +182,7 @@
 						"typeProperties": {
 							"source": {
 								"type": "AzureSqlSource",
-								"sqlReaderQuery": "select FirstName from [SalesLT].[Customer]\nwhere FirstName=\"Keith\"",
+								"sqlReaderQuery": "Select FirstName from SalesLT.Customer\nwhere FirstName = 'Keith'",
 								"queryTimeout": "02:00:00",
 								"partitionOption": "None"
 							},
