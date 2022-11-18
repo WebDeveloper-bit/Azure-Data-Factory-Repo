@@ -1151,7 +1151,16 @@
 						},
 						"userProperties": [],
 						"typeProperties": {
-							"storedProcedureName": "[[dbo].[SelectAllCustomers]"
+							"storedProcedureName": "[[dbo].[SelectAllCustomers]",
+							"storedProcedureParameters": {
+								"name": {
+									"value": {
+										"value": "@activity('Lookup1').output.firstRow.FirstName",
+										"type": "Expression"
+									},
+									"type": "String"
+								}
+							}
 						},
 						"linkedServiceName": {
 							"referenceName": "AzureSqlDatabase1",
