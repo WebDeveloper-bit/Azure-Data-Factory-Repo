@@ -2,7 +2,7 @@
 	"name": "SqlServerTable1",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "LinkToOnPremiseDB",
+			"referenceName": "SqlServer1",
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
