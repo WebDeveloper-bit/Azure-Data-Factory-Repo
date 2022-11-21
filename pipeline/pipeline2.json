@@ -1,0 +1,95 @@
+{
+	"name": "pipeline2",
+	"properties": {
+		"activities": [
+			{
+				"name": "ForEach1",
+				"type": "ForEach",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@pipeline().parameters.sheetName",
+						"type": "Expression"
+					},
+					"isSequential": true,
+					"activities": [
+						{
+							"name": "Copy data1",
+							"type": "Copy",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"source": {
+									"type": "ExcelSource",
+									"storeSettings": {
+										"type": "AzureBlobStorageReadSettings",
+										"recursive": true,
+										"enablePartitionDiscovery": false
+									}
+								},
+								"sink": {
+									"type": "JsonSink",
+									"storeSettings": {
+										"type": "AzureBlobStorageWriteSettings"
+									},
+									"formatSettings": {
+										"type": "JsonWriteSettings"
+									}
+								},
+								"enableStaging": false
+							},
+							"inputs": [
+								{
+									"referenceName": "Excel1",
+									"type": "DatasetReference",
+									"parameters": {
+										"dSheetName": {
+											"value": "@item().sheetName",
+											"type": "Expression"
+										}
+									}
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "Json1",
+									"type": "DatasetReference"
+								}
+							]
+						}
+					]
+				}
+			}
+		],
+		"parameters": {
+			"sheetName": {
+				"type": "array",
+				"defaultValue": [
+					{
+						"sheetName": "SalesOrders"
+					},
+					{
+						"sheetName": "MyLinks"
+					},
+					{
+						"sheetName": "Sheet1"
+					}
+				]
+			}
+		},
+		"folder": {
+			"name": "Pratice Pipeline_11"
+		},
+		"annotations": [],
+		"lastPublishTime": "2022-11-18T16:14:25Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

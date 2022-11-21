@@ -67,6 +67,8 @@
 		"folder": {
 			"name": "Pratice Pipeline_10 (store procedure)"
 		},
-		"annotations": []
-	}
+		"annotations": [],
+		"lastPublishTime": "2022-11-18T10:29:34Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
 }
