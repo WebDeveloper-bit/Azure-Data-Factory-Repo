@@ -10,8 +10,8 @@
 					"type": "PipelineReference"
 				},
 				"parameters": {
-					"CName": "data",
-					"FName": "MovieDB"
+					"CName": "@triggerBody().fileName",
+					"FName": "@triggerBody().folderPath"
 				}
 			}
 		],
