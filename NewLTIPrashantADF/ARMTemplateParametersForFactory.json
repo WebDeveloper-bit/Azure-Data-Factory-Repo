@@ -5,10 +5,10 @@
 		"factoryName": {
 			"value": "NewLTIPrashantADF"
 		},
-		"LinkedServiceForStore_connectionString": {
+		"AzureSqlDatabase1_connectionString": {
 			"value": ""
 		},
-		"AzureSqlDatabase1_connectionString": {
+		"LinkedServiceForStore_connectionString": {
 			"value": ""
 		},
 		"SqlServer1_connectionString": {
@@ -19,6 +19,15 @@
 		},
 		"SqlServer1_properties_typeProperties_userName": {
 			"value": "sa"
+		},
+		"storage_event_trigger_properties_CopyStoreToStore_1_parameters_CName": {
+			"value": "@triggerBody().fileName"
+		},
+		"storage_event_trigger_properties_CopyStoreToStore_1_parameters_FName": {
+			"value": "@triggerBody().folderPath"
+		},
+		"storage_event_trigger_properties_typeProperties_scope": {
+			"value": "/subscriptions/daf2119f-162c-4dc4-80dd-907a34e844d5/resourceGroups/LTI/providers/Microsoft.Storage/storageAccounts/ltiprashantstorenew"
 		}
 	}
 }
