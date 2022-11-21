@@ -6,14 +6,13 @@
 			"type": "LinkedServiceReference"
 		},
 		"folder": {
-			"name": "Trigger"
+			"name": "Trigger/storage event dataset"
 		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "MovieDB.csv",
 				"folderPath": "output",
 				"container": "data"
 			},
