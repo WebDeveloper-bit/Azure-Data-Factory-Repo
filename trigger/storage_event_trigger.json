@@ -17,7 +17,7 @@
 		],
 		"type": "BlobEventsTrigger",
 		"typeProperties": {
-			"blobPathBeginsWith": "/data/blobs/MovieDB",
+			"blobPathBeginsWith": "/data/blobs/input/MovieDB",
 			"blobPathEndsWith": ".csv",
 			"ignoreEmptyBlobs": true,
 			"scope": "/subscriptions/daf2119f-162c-4dc4-80dd-907a34e844d5/resourceGroups/LTI/providers/Microsoft.Storage/storageAccounts/ltiprashantstorenew",
