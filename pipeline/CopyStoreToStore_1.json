@@ -55,6 +55,10 @@
 							"ContainerName": {
 								"value": "@pipeline().parameters.CName",
 								"type": "Expression"
+							},
+							"FileName": {
+								"value": "@pipeline().parameters.FName",
+								"type": "Expression"
 							}
 						}
 					}
